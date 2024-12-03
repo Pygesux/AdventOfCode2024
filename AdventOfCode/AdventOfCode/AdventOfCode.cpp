@@ -3,20 +3,24 @@
 #include <gtest/gtest.h>
 
 #include "DayOne.h"
+#include "DayThree.h"
 #include "DayTwo.h"
 
 int main(int argc, char* argv[])
 {
-    std::cout << "Day One Part One: " << DayOne::run_part_one("Input.txt") << '\n';
-    std::cout << "Day One Part Two: " << DayOne::run_part_two("Input.txt") << '\n';
-    std::cout << "Day Two Part One: " << DayTwo::run_part_one("Input.txt") << '\n';
-    std::cout << "Day Two Part Two: " << DayTwo::run_part_two("Input.txt") << '\n';
+    int test_results =0;
 #ifdef _DEBUG
     ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-#else
-    return 0;
+    test_results = RUN_ALL_TESTS();
 #endif
+    
+    // std::cout << "Day One Part One: " << DayOne::run_part_one("Input.txt") << '\n';
+    // std::cout << "Day One Part Two: " << DayOne::run_part_two("Input.txt") << '\n';
+    // std::cout << "Day Two Part One: " << DayTwo::run_part_one("Input.txt") << '\n';
+    // std::cout << "Day Two Part Two: " << DayTwo::run_part_two("Input.txt") << '\n';
+    // std::cout << "Day Three Part One: " << DayThree::run_part_one("Input.txt") << '\n';
+    std::cout << "Day Three Part Two: " << DayThree::run_part_two("Input.txt") << '\n';
+    return test_results;
 }
 
 TEST(DayOne, PartOne)
@@ -36,5 +40,12 @@ TEST(DayTwo, PartTwo)
 {
     EXPECT_EQ(DayTwo::run_part_two("Example.txt"), 4);
 }
-
+TEST(DayThree, PartOne)
+{
+    EXPECT_EQ(DayThree::run_part_one("Example.txt"), 161);
+}
+TEST(DayThree, PartTwo)
+{
+    EXPECT_EQ(DayThree::run_part_two("Example.txt"), 48);
+}
 

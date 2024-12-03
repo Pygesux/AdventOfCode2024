@@ -38,14 +38,18 @@
   <ItemGroup>
     <ClCompile Include="AdventOfCode.cpp" />
     <ClCompile Include="DayOne.cpp" />
+    <ClCompile Include="DayThree.cpp" />
     <ClCompile Include="DayTwo.cpp" />
+    <ClCompile Include="Helper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DayOne.h" />
+    <ClInclude Include="DayThree.h" />
     <ClInclude Include="DayTwo.h" />
+    <ClInclude Include="Helper.h" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

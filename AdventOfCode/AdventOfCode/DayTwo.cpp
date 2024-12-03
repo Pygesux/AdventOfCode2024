@@ -4,17 +4,8 @@
 #include <sstream>
 #include <string>
 
-std::vector<std::string> DayTwo::split(const std::string& str, char delimiter)
-{
-    std::vector<std::string> output;
-    std::string token;
-    std::istringstream tokenStream(str);
-    while (std::getline(tokenStream, token, delimiter))
-    {
-        output.push_back(token);
-    }
-    return output;
-}
+#include "Helper.h"
+
 
 bool DayTwo::is_valid(const int current_level, const int next_level)
 {
@@ -34,7 +25,7 @@ bool DayTwo::is_valid(const int current_level, const int next_level, bool increa
 
 int DayTwo::run_part_one(const char* file_name)
 {
-    std::ifstream file("../Data/DayTwo/PartOne/" + std::string(file_name));
+    std::ifstream file("../Data/DayTwo/" + std::string(file_name));
 
     if (!file.is_open()) {
         return -1; // Handle error if file cannot be opened
@@ -46,7 +37,7 @@ int DayTwo::run_part_one(const char* file_name)
 
     while (std::getline(file, line))
     {
-        auto levels = split(line, ' ');
+        auto levels = Helper::split(line, ' ');
         bool increasing = true;
         bool valid = true;
         for (size_t i = 0; i < levels.size()-1; i++)
@@ -84,7 +75,7 @@ int DayTwo::run_part_one(const char* file_name)
 
 int DayTwo::run_part_two(const char* file_name)
 {
-    std::ifstream file("../Data/DayTwo/PartTwo/" + std::string(file_name));
+    std::ifstream file("../Data/DayTwo/" + std::string(file_name));
 
     if (!file.is_open())
     {
@@ -97,7 +88,7 @@ int DayTwo::run_part_two(const char* file_name)
 
     while (std::getline(file, line))
     {
-        auto levels = split(line, ' ');
+        auto levels = Helper::split(line, ' ');
         bool increasing = true;
         bool increasing_set = false;
         bool valid = true;

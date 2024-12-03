@@ -11,7 +11,7 @@
 
 int DayOne::run_part_one(const char* file_name)
 {
-    std::ifstream file("../Data/DayOne/PartOne/" + std::string(file_name));
+    std::ifstream file("../Data/DayOne/" + std::string(file_name));
 
     if (!file.is_open()) {
         std::cout << "Unable to open file" << '\n';
@@ -47,7 +47,7 @@ int DayOne::run_part_one(const char* file_name)
 
 int DayOne::run_part_two(const char* file_name)
 {
-    std::ifstream file("../Data/DayOne/PartTwo/" + std::string(file_name));
+    std::ifstream file("../Data/DayOne/" + std::string(file_name));
 
     if (!file.is_open()) {
         std::cout << "Unable to open file" << '\n';
