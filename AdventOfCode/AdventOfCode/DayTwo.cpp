@@ -27,7 +27,8 @@ int DayTwo::run_part_one(const char* file_name)
 {
     std::ifstream file("../Data/DayTwo/" + std::string(file_name));
 
-    if (!file.is_open()) {
+    if (!file.is_open())
+    {
         return -1; // Handle error if file cannot be opened
     }
 
@@ -40,34 +41,30 @@ int DayTwo::run_part_one(const char* file_name)
         auto levels = Helper::split(line, ' ');
         bool increasing = true;
         bool valid = true;
-        for (size_t i = 0; i < levels.size()-1; i++)
+        for (size_t i = 0; i < levels.size() - 1; i++)
         {
             int current_level = std::stoi(levels[i]);
             int next_level = std::stoi(levels[i + 1]);
 
-            if(i == 0)
+            if (i == 0)
             {
-                if(!is_valid(current_level, next_level))
+                if (!is_valid(current_level, next_level))
                 {
-                    
                     valid = false;
                     break;
                 }
                 increasing = current_level < next_level;
-
-            } else
+            }
+            else
             {
-                if(!is_valid(current_level, next_level, increasing))
+                if (!is_valid(current_level, next_level, increasing))
                 {
                     valid = false;
                     break;
                 }
             }
-            
-
-          
         }
-        if(valid)
+        if (valid)
             count++;
     }
     return count;
@@ -123,7 +120,8 @@ int DayTwo::run_part_two(const char* file_name)
                         break;
                     }
 
-                    if (i == 1 && (is_valid(current_level, next_level, !increasing) && !increasing == next_level < std::stoi(levels[i + 2])))
+                    if (i == 1 && (is_valid(current_level, next_level, !increasing) && !increasing == next_level <
+                        std::stoi(levels[i + 2])))
                     {
                         // Check if index 0 can be removed
                         increasing = !increasing;
@@ -144,15 +142,15 @@ int DayTwo::run_part_two(const char* file_name)
                                 break;
                             }
                             increasing = current_level < next_level;
-                        }else
+                        }
+                        else
                         {
                             if (!is_valid(current_level, next_level, increasing))
                             {
                                 valid = false;
                                 break;
-                            } 
+                            }
                         }
-                        
                     }
                 }
             }

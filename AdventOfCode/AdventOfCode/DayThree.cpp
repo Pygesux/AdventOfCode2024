@@ -11,13 +11,14 @@ int DayThree::run_part_one(const char* file_name)
 {
     std::ifstream file("../Data/DayThree/" + std::string(file_name));
 
-    if (!file.is_open()) {
+    if (!file.is_open())
+    {
         return -1; // Handle error if file cannot be opened
     }
 
     std::regex pattern = std::regex("mul\\(\\d{1,3},\\d{1,3}\\)");
     std::smatch match = std::smatch();
-    
+
     std::stringstream ss;
     ss << file.rdbuf();
     std::string input = ss.str();
@@ -39,7 +40,8 @@ int DayThree::run_part_two(const char* file_name)
 {
     std::ifstream file("../Data/DayThree/" + std::string(file_name));
 
-    if (!file.is_open()) {
+    if (!file.is_open())
+    {
         return -1; // Handle error if file cannot be opened
     }
 
@@ -58,13 +60,15 @@ int DayThree::run_part_two(const char* file_name)
 
         input = match.suffix().str();
 
-        if (str[0] == 'd') {
+        if (str[0] == 'd')
+        {
             // Handle "do()" or "don't()"
             do_not = str == "don't()";
             continue;
         }
 
-        if (do_not) {
+        if (do_not)
+        {
             continue;
         }
 

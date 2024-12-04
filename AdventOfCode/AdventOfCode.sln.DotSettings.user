@@ -1,5 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ANuxejyv_002Easm_002Fl_003AC_0021_003FUsers_003Flberg_003FAppData_003FLocal_003FTemp_003FSandboxFiles_003FXehuxix_003FNuxejyv_002Easm/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=AE53274C_002DA0EA_002D4CDD_002D97B9_002DF67BD535DA3D_002Ff_003ADayFour_002Ecpp/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/PencilsConfiguration/ActualSeverity/@EntryValue">INFO</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a89f8bfa_002D2fdc_002D48af_002D83d2_002D598d44b5dca8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from test.cpp" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;AE53274C-A0EA-4CDD-97B9-F67BD535DA3D/f:AdventOfCode.cpp&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
