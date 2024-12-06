@@ -1,6 +1,7 @@
 #include <iostream>
 #include <gtest/gtest.h>
 
+#include "DayFive.h"
 #include "DayFour.h"
 #include "DayOne.h"
 #include "DayThree.h"
@@ -21,6 +22,8 @@ int main(int argc, char* argv[])
     std::cout << "Day Three Part Two: " << DayThree::run_part_two("Input.txt") << '\n';
     std::cout << "Day Four Part One: " << DayFour::run_part_one("Input.txt") << '\n';
     std::cout << "Day Four Part Two: " << DayFour::run_part_two("Input.txt") << '\n';
+    std::cout << "Day Five Part One: " << DayFive::run_part_one("Input.txt") << '\n';
+    std::cout << "Day Five Part Two: " << DayFive::run_part_two("Input.txt") << '\n';
     return test_results;
 }
 
@@ -58,7 +61,18 @@ TEST(DayFour, PartOne)
 {
     EXPECT_EQ(DayFour::run_part_one("Example.txt"), 18);
 }
+
 TEST(DayFour, PartTwo)
 {
     EXPECT_EQ(DayFour::run_part_two("Example.txt"), 9);
+}
+
+TEST(DayFive, PartOne)
+{
+    EXPECT_EQ(DayFive::run_part_one("Example.txt"), 143);
+}
+
+TEST(DayFive, PartTwo)
+{
+    EXPECT_EQ(DayFive::run_part_two("Example.txt"), 123);
 }

@@ -167,7 +167,7 @@ int DayFour::run_part_two(const char* file_name)
     {
         x = std::get<0>(word);
         y = std::get<1>(word);
-         if (is_valid(input, x, y, target_characters))
+        if (is_valid(input, x, y, target_characters))
         {
             count++;
         }
