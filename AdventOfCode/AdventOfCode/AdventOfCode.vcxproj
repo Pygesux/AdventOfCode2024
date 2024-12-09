@@ -38,6 +38,7 @@
     <ItemGroup>
         <ClCompile Include="AdventOfCode.cpp"/>
         <ClCompile Include="Base3Set.cpp" />
+        <ClCompile Include="DayEight.cpp" />
         <ClCompile Include="DayFive.cpp"/>
         <ClCompile Include="DayFour.cpp"/>
         <ClCompile Include="DayOne.cpp"/>
@@ -52,6 +53,7 @@
     </ItemGroup>
     <ItemGroup>
         <ClInclude Include="Base3Set.h" />
+        <ClInclude Include="DayEight.h" />
         <ClInclude Include="DayFive.h"/>
         <ClInclude Include="DayFour.h"/>
         <ClInclude Include="DayOne.h"/>
