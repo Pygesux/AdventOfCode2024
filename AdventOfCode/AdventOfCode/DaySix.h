@@ -1,9 +1,5 @@
 #pragma once
 #include <tuple>
-#include <unordered_set>
-#include <unordered_set>
-#include <unordered_set>
-#include <unordered_set>
 #include <vector>
 
 class DaySix
@@ -16,9 +12,9 @@ class DaySix
     };
 
     static EResult move_part_one(std::tuple<int, int>& position, const std::tuple<int, int>& direction,
-                        const std::vector<std::tuple<int, int>>& obstacles,
-                        std::vector<std::tuple<int, int>>& visited, std::tuple<int, int>
-                        size);
+                                 const std::vector<std::tuple<int, int>>& obstacles,
+                                 std::vector<std::tuple<int, int>>& visited, std::tuple<int, int>
+                                 size);
     static EResult move_part_two(::std::tuple<int, int>& position, const ::std::tuple<int, int>& direction,
                                  const std::vector<std::tuple<int, int>>& obstacles,
                                  std::vector<std::tuple<int, int, int, int>>& visited, std::tuple<int, int> size);

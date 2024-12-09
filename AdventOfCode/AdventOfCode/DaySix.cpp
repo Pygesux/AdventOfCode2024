@@ -38,8 +38,8 @@ DaySix::EResult DaySix::move_part_one(std::tuple<int, int>& position, const std:
 }
 
 DaySix::EResult DaySix::move_part_two(std::tuple<int, int>& position, const std::tuple<int, int>& direction,
-                             const std::vector<std::tuple<int, int>>& obstacles,
-                             std::vector<std::tuple<int, int,int,int>>& visited, std::tuple<int, int> size)
+                                      const std::vector<std::tuple<int, int>>& obstacles,
+                                      std::vector<std::tuple<int, int, int, int>>& visited, std::tuple<int, int> size)
 {
     int x = std::get<0>(position);
     int y = std::get<1>(position);
@@ -56,7 +56,7 @@ DaySix::EResult DaySix::move_part_two(std::tuple<int, int>& position, const std:
     }
 
     position = std::make_tuple(new_x, new_y);
-    visited.emplace_back(new_x, new_y,std::get<0>(direction), std::get<1>(direction));
+    visited.emplace_back(new_x, new_y, std::get<0>(direction), std::get<1>(direction));
     return EResult::Moved;
 }
 
@@ -403,7 +403,8 @@ int DaySix::run_part_two(const char* file_name)
         switch (move_part_two(position, direction, obstacles, visited, size))
         {
         case Moved:
-            if(std::get<0>(start_position) == std::get<0>(position) && std::get<1>(start_position) == std::get<1>(position))
+            if (std::get<0>(start_position) == std::get<0>(position) && std::get<1>(start_position) == std::get<
+                1>(position))
             {
                 break;
             }
@@ -418,7 +419,8 @@ int DaySix::run_part_two(const char* file_name)
             {
                 direction = std::get<0>(direction) == -1 ? std::make_tuple(0, -1) : std::make_tuple(0, 1);
             }
-            path.emplace_back(std::get<0>(position), std::get<1>(position), std::get<0>(direction), std::get<1>(direction));
+            path.emplace_back(std::get<0>(position), std::get<1>(position), std::get<0>(direction),
+                              std::get<1>(direction));
             break;
         case Done:
             done = true;
@@ -431,20 +433,23 @@ int DaySix::run_part_two(const char* file_name)
     std::vector<std::tuple<bool, int, int>> results(new_obstacles.size());
     std::mutex mtx;
 
-    auto process = [&](size_t i) {
+    auto process = [&](size_t i)
+    {
         auto result = process_obstacle(start_position, start_direction, new_obstacles[i], size, obstacles);
         std::lock_guard<std::mutex> lock(mtx);
         results[i] = result;
         // std::cout << "Processed obstacle: " << i << " out of " << new_obstacles.size() << '\n';
     };
-    
-    
+
+
     std::vector<std::thread> threads;
-    for (size_t i = 0; i < new_obstacles.size(); ++i) {
+    for (size_t i = 0; i < new_obstacles.size(); ++i)
+    {
         threads.emplace_back(process, i);
     }
-    
-    for (auto& thread : threads) {
+
+    for (auto& thread : threads)
+    {
         thread.join();
     }
     // for (auto obstacle : new_obstacles)
@@ -454,8 +459,10 @@ int DaySix::run_part_two(const char* file_name)
     // }
 
     int count = 0;
-    for (const auto& result : results) {
-        if (std::get<0>(result)) {
+    for (const auto& result : results)
+    {
+        if (std::get<0>(result))
+        {
             count++;
         }
     }
@@ -474,48 +481,51 @@ std::tuple<bool, int, int> DaySix::process_obstacle(std::tuple<int, int> start_p
     int x = std::get<0>(new_obstacle);
     int y = std::get<1>(new_obstacle);
     // std::cout << "Processing obstacle at: " << x << ", " << y << '\n';
-    
-    std::vector<std::tuple<int,int,int,int>> states = std::vector<std::tuple<int,int,int,int>>();
+
+    std::vector<std::tuple<int, int, int, int>> states = std::vector<std::tuple<int, int, int, int>>();
     obstacles.emplace_back(x, y);
-    while(true)
+    while (true)
     {
         auto before = visited;
         switch (move_part_two(position, direction, obstacles, visited, size))
         {
         case Moved:
-            
+
             // Do nothing
             // if(std::find(before.begin(), before.end(), std::make_tuple(std::get<0>(position), std::get<1>(position), std::get<0>(direction), std::get<1>(direction))) != before.end())
             // {
-                // return true;
+            // return true;
             // }
             // if(log)
-                // std::cout << "Moved to: " << std::get<0>(position) << ", " << std::get<1>(position) << '\n';
+            // std::cout << "Moved to: " << std::get<0>(position) << ", " << std::get<1>(position) << '\n';
             break;
         case HitObstacle:
             // if(log)
             // {
-                // std::cout << "Hit obstacle at: " << std::get<0>(position) << ", " << std::get<1>(position) << '\n';
+            // std::cout << "Hit obstacle at: " << std::get<0>(position) << ", " << std::get<1>(position) << '\n';
             // }
             // Turn right
-                if (std::get<0>(direction) == 0)
-                {
-                    direction = std::get<1>(direction) == -1 ? std::make_tuple(1, 0) : std::make_tuple(-1, 0);
-                }
-                else
-                {
-                    direction = std::get<0>(direction) == -1 ? std::make_tuple(0, -1) : std::make_tuple(0, 1);
-                }
-            if(std::find(states.begin(), states.end(), std::make_tuple(std::get<0>(position), std::get<1>(position), std::get<0>(direction), std::get<1>(direction))) != states.end())
+            if (std::get<0>(direction) == 0)
+            {
+                direction = std::get<1>(direction) == -1 ? std::make_tuple(1, 0) : std::make_tuple(-1, 0);
+            }
+            else
+            {
+                direction = std::get<0>(direction) == -1 ? std::make_tuple(0, -1) : std::make_tuple(0, 1);
+            }
+            if (std::find(states.begin(), states.end(),
+                          std::make_tuple(std::get<0>(position), std::get<1>(position), std::get<0>(direction),
+                                          std::get<1>(direction))) != states.end())
             {
                 // std::cout << "Found loop at: " << std::get<0>(position) << ", " << std::get<1>(position) << '\n';
                 return std::make_tuple(true, std::get<0>(position), std::get<1>(position));
             }
-            states.emplace_back(std::get<0>(position), std::get<1>(position), std::get<0>(direction), std::get<1>(direction));
-            // if(count > path_size * 2) {
-                // return true;
-            // }
-            // count++;
+            states.emplace_back(std::get<0>(position), std::get<1>(position), std::get<0>(direction),
+                                std::get<1>(direction));
+        // if(count > path_size * 2) {
+        // return true;
+        // }
+        // count++;
             break;
         case Done:
             return std::make_tuple(false, 0, 0);

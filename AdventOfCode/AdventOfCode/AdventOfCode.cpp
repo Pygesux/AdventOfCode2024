@@ -4,6 +4,7 @@
 #include "DayFive.h"
 #include "DayFour.h"
 #include "DayOne.h"
+#include "DaySeven.h"
 #include "DaySix.h"
 #include "DayThree.h"
 #include "DayTwo.h"
@@ -27,6 +28,9 @@ int main(int argc, char* argv[])
     // std::cout << "Day Five Part Two: " << DayFive::run_part_two("Input.txt") << '\n';
     // std::cout << "Day Six Part One: " << DaySix::run_part_one("Input.txt") << '\n';
     // std::cout << "Day Six Part Two: " << DaySix::run_part_two("Input.txt") << '\n';
+    std::cout << "Day Seven Part One: " << DaySeven::run_part_one("Input.txt") << '\n';
+    std::cout << "Day Seven Part Two: " << DaySeven::run_part_two("Input.txt") << '\n';
+
     return test_results;
 }
 
@@ -88,4 +92,14 @@ TEST(DaySix, PartOne)
 TEST(DaySix, PartTwo)
 {
     EXPECT_EQ(DaySix::run_part_two("Example.txt"), 6);
+}
+
+TEST(DaySeven, PartOne)
+{
+    EXPECT_EQ(DaySeven::run_part_one("Example.txt"), 3749);
+}
+
+TEST(DaySeven, PartTwo)
+{
+    EXPECT_EQ(DaySeven::run_part_two("Example.txt"), 11387);
 }
