@@ -435,7 +435,7 @@ int DaySix::run_part_two(const char* file_name)
         auto result = process_obstacle(start_position, start_direction, new_obstacles[i], size, obstacles);
         std::lock_guard<std::mutex> lock(mtx);
         results[i] = result;
-        std::cout << "Processed obstacle: " << i << " out of " << new_obstacles.size() << '\n';
+        // std::cout << "Processed obstacle: " << i << " out of " << new_obstacles.size() << '\n';
     };
     
     
@@ -508,7 +508,7 @@ std::tuple<bool, int, int> DaySix::process_obstacle(std::tuple<int, int> start_p
                 }
             if(std::find(states.begin(), states.end(), std::make_tuple(std::get<0>(position), std::get<1>(position), std::get<0>(direction), std::get<1>(direction))) != states.end())
             {
-                std::cout << "Found loop at: " << std::get<0>(position) << ", " << std::get<1>(position) << '\n';
+                // std::cout << "Found loop at: " << std::get<0>(position) << ", " << std::get<1>(position) << '\n';
                 return std::make_tuple(true, std::get<0>(position), std::get<1>(position));
             }
             states.emplace_back(std::get<0>(position), std::get<1>(position), std::get<0>(direction), std::get<1>(direction));
