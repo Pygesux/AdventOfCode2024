@@ -61,7 +61,7 @@ int DayFive::run_part_one(const char* file_name)
                 {
                     for (size_t j = i; j < count; ++j)
                     {
-                        if(std::get<0>(rule) == update[j])
+                        if (std::get<0>(rule) == update[j])
                         {
                             goto invalid;
                         }
@@ -69,8 +69,8 @@ int DayFive::run_part_one(const char* file_name)
                 }
             }
         }
-        sum += update[static_cast<int>(static_cast<float>(count)/2.0f)];
-        invalid:
+        sum += update[static_cast<int>(static_cast<float>(count) / 2.0f)];
+    invalid:
         continue;
     }
     return sum;
@@ -129,7 +129,7 @@ int DayFive::run_part_two(const char* file_name)
                 for (auto j = 0; j < result.size(); ++j)
                 {
                     // If 
-                    
+
                     if (result[j] == std::get<0>(rule) && value == std::get<1>(rule))
                     {
                         index = std::max(index, j + 1);
@@ -138,8 +138,8 @@ int DayFive::run_part_two(const char* file_name)
             }
             result.insert(result.begin() + index, value);
         }
-        if(update != result)
-            sum += result[static_cast<int>(static_cast<float>(count)/2.0f)];
+        if (update != result)
+            sum += result[static_cast<int>(static_cast<float>(count) / 2.0f)];
     }
     return sum;
 }
