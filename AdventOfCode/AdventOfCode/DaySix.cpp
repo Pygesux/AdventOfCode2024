@@ -116,7 +116,7 @@ int DaySix::run_part_one(const char* file_name)
             break;
         }
     }
-    return static_cast<int>(std::set<std::tuple<int, int>>(visited.begin(), visited.end()).size()) + 1;
+    return static_cast<int>(std::set<std::tuple<int, int>>(visited.begin(), visited.end()).size());
 }
 
 
